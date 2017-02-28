@@ -7,14 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using tiendaVirtual;
+using tiendaVirtual.Models;
 
 namespace tiendaVirtual.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         private tiendaVirtualEntities db = new tiendaVirtualEntities();
 
-        // GET: Productos
         public ActionResult Index()
         {
             return View(db.Productoes.ToList());
@@ -113,6 +114,13 @@ namespace tiendaVirtual.Controllers
             db.Productoes.Remove(producto);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddToCart(CarroCompra cc, int id)
+        {
+            Producto producto = db.Productoes.Find(id);
+            cc.Add(producto);
+            return RedirectToAction("Index","Carro");
         }
 
         protected override void Dispose(bool disposing)
