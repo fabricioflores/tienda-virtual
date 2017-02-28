@@ -39,8 +39,10 @@ namespace tiendaVirtual.Controllers
                 cc.RemoveAt(index);
                 productInDb.cantidad = productInDb.cantidad - 1;
                 Pedido pedido = new Pedido();
+                pedido.usuario = User.Identity.Name;
                 pedido.cantidad = 1;
                 pedido.Producto = productInDb;
+                db.Pedidoes.Add(pedido);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Carro");
             }

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<tiendaVirtual.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pedidos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.nombre)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.nombre)
+        </td>
+    </tr>
+}
+
+</table>

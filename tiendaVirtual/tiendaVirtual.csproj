@@ -173,6 +173,7 @@
     <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -283,6 +284,7 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
     <Content Include="Views\Carro\Stock.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
