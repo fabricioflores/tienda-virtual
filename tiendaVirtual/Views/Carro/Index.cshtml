@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -26,24 +23,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Select((x, i) => new { Value = x, Index = i }))
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.nombre)
+            @Html.DisplayFor(modelItem => item.Value.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagen)
+            @Html.DisplayFor(modelItem => item.Value.imagen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.precio)
+            @Html.DisplayFor(modelItem => item.Value.precio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
+            @Html.DisplayFor(modelItem => item.Value.cantidad)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            <a class="btn btn-danger" href="@Url.Action("DeleteFromCart", "Carro",  new { index=item.Index } )">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar del carro
+            </a>
         </td>
     </tr>
 }

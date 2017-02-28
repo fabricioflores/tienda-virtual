@@ -21,5 +21,10 @@ namespace tiendaVirtual.Controllers
             return View(cc);
         }
 
+        public ActionResult DeleteFromCart(CarroCompra cc, int index) {
+            cc.RemoveAt(index);
+            return RedirectToAction("Index", "Carro");
+        }
+
     }
 }
