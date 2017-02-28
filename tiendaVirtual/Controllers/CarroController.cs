@@ -26,5 +26,32 @@ namespace tiendaVirtual.Controllers
             return RedirectToAction("Index", "Carro");
         }
 
+        public ActionResult Buy(CarroCompra cc, int index)
+        {
+            Producto productInCart = cc.ElementAt(index);
+            Producto productInDb = db.Productoes.Find(productInCart.id);
+            if (productInDb.cantidad - 1 < 0)
+            {
+                return RedirectToAction("Stock", "Carro", new { id = productInDb.id});
+            }
+            else
+            {
+                cc.RemoveAt(index);
+                productInDb.cantidad = productInDb.cantidad - 1;
+                Pedido pedido = new Pedido();
+                pedido.cantidad = 1;
+                pedido.Producto = productInDb;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Carro");
+            }
+
+        }
+
+        public ActionResult Stock(int id)
+        {
+            Producto producto = db.Productoes.Find(id);
+            return View(producto);
+        }
+
     }
 }

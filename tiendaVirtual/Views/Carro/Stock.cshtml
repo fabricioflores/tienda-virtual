@@ -1,0 +1,49 @@
+﻿@model tiendaVirtual.Producto
+
+@{
+    ViewBag.Title = "Stock";
+}
+
+<h2>Stock no disponible para este producto:</h2>
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.nombre)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.nombre)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.imagen)
+    </dt>
+
+    <dd>
+        <img src="@Model.imagen" class="img-rounded" height="200" />
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.precio)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.precio)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.cantidad)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.cantidad)
+    </dd>
+
+</dl>
+</div>
+<p>
+    <a class="btn btn-default" href="@Url.Action("Index", "Carro")">
+       Regresar al carro
+    </a>
+</p>
+

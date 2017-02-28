@@ -30,7 +30,7 @@
             @Html.DisplayFor(modelItem => item.Value.nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Value.imagen)
+            <img src="@item.Value.imagen" class="img-rounded" height="100" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Value.precio)
@@ -41,6 +41,9 @@
         <td>
             <a class="btn btn-danger" href="@Url.Action("DeleteFromCart", "Carro",  new { index=item.Index } )">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Eliminar del carro
+            </a>
+            <a class="btn btn-success" href="@Url.Action("Buy", "Carro",  new { index=item.Index } )">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Comprar item
             </a>
         </td>
     </tr>
