@@ -10,6 +10,7 @@ using tiendaVirtual;
 
 namespace tiendaVirtual.Controllers
 {
+    [Authorize]
     public class PedidosController : Controller
     {
         private tiendaVirtualEntities db = new tiendaVirtualEntities();

@@ -11,6 +11,7 @@ using tiendaVirtual.Models;
 
 namespace tiendaVirtual.Controllers
 {
+    [Authorize]
     public class CarroController : Controller
     {
         private tiendaVirtualEntities db = new tiendaVirtualEntities();
